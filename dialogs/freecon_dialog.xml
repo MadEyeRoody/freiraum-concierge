@@ -4,7 +4,7 @@
         <folder label="Main">
             <output>
                 <prompt selectionType="RANDOM">
-                    <item>Hi, I'm Watson! I can help you order a pizza, what size would you like?</item>
+                    <item>Willkommen im Freiraum. Wie kann ich dir weiterhelfen?</item>
                 </prompt>
                 <goto ref="getUserInput_2442994"/>
             </output>
@@ -17,10 +17,9 @@
                     <default>
                         <output>
                             <prompt selectionType="RANDOM">
-                                <item>I'm sorry I did not understand your question. All I can do is help you order a pizza...</item>
-                                <item>I did not quite get that.</item>
-                                <item>I didnt grasp what you said.</item>
-                                <item>I'm not following you at the moment.</item>
+                                <item>Ich habe dich nicht verstanden.</item>
+                                <item>Wiederhole das bitte noch einmal.</item>
+                                <item>Wie meinst du das?</item>
                             </prompt>
                         </output>
                     </default>
@@ -31,43 +30,15 @@
             <folder label="Live Content" id="folder_2442998">
                 <input>
                     <grammar>
-                        <item>What do you have?</item>
-                        <item>$ What * do you have</item>
-                        <item>$ what * do you carry</item>
-                        <item>$ What * is there</item>
-                        <item>$ What are my choices</item>
-                        <item>$ do you have *</item>
-                        <item>$ which * do you have</item>
+                        <item>Kaffee?</item>
                     </grammar>
-                    <input>
-                        <grammar>
-                            <item>$ (Size)</item>
-                            <item>size</item>
-                            <item>sizes</item>
-                        </grammar>
                         <output>
                             <prompt selectionType="RANDOM">
-                                <item>We have small, medium, large, and extra large</item>
+                                <item>Mach ihn dir selber!</item>
+                                <item>Schau in die Küche!</item>
+                                <item>Was ist Kaffee?</item>
                             </prompt>
                         </output>
-                    </input>
-                    <input>
-                        <grammar>
-                            <item>$ (Toppings)</item>
-                            <item>$ topping</item>
-                            <item>$ toppings</item>
-                        </grammar>
-                        <output>
-                            <prompt selectionType="RANDOM">
-                                <item>We have cheese, pepperoni, olives, mushrooms, etc.</item>
-                            </prompt>
-                        </output>
-                    </input>
-                    <output>
-                        <prompt selectionType="RANDOM">
-                            <item>We have small, medium, large and extra large, as well as all the normal toppings.</item>
-                        </prompt>
-                    </output>
                 </input>
                 <input>
                     <grammar>
