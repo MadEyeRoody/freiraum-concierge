@@ -4,8 +4,9 @@ declared-services:
     plan: standard
 applications:
 - services:
-  - dialog-service
-  name: dialog-nodejs
+  - dialog-freecon
+  - nlc-freecon
+  name: freecon
   command: node app.js
   path: .
   memory: 512M
