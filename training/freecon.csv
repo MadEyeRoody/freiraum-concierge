@@ -1,0 +1,52 @@
+Wie heisst du?,identity
+Wie ist dein Name?,identity
+Wer bist du?,identity
+Was bist du?,identity
+Seit wann gibt es den Freiraum?,opening
+Seit wann gibt es die Innovationswerkstatt?,opening
+Wann war die Eröffnung?,opening
+Was kann ich hier machen?,concepts
+Was kann ich hier tun?,concepts
+Wie läuft das hier?,concepts
+Wie kann ich die Räumlichkeiten nutzen?,usage
+Wie kann ich den Freiraum nutzen?,usage
+Wie kann ich die Innovationswerkstatt nutzen?,usage
+Wie nutze ich die Räumlichkeiten?,usage
+Gibt es eine Hausordnung?,rules
+Wie ist die Hausorndung?,rules
+Gibts es Regeln?,rules
+Was muss ich beachten?,rules
+Wie kann ich den Freiraum buchen?,booking
+Wie kann ich die Räumlichkeiten buchen?,booking
+Wie kann ich die Besprechungsräume reservieren?,booking
+Kann ich den Freiraum über den Notes-Kalender buchen?,booking
+Kann ich die Innovationswerkstatt über den Notes-Kalender buchen?,booking
+Wie buche ich Besprechungsräume?,booking
+Was ist hier so los?,events
+Welche Veranstaltungen finden hier statt?,events
+Gibt es ein Programm?,events
+Wie sind die Öffnungszeiten?,businesshours
+Wann ist hier auf?,businesshours
+Wann kann ich rein?,businesshours
+Wer kann hier alles rein?,access
+Wer darf den Raum nutzen?,access
+Wie funktioniert die Kaffeemaschine?,coffee
+Wer macht hier Kaffee?,coffee
+Wer kocht Kaffee?,coffee
+Kaffee?,coffee
+Ist der der Kaffee kostenlos?,coffeepayment
+Muss man für den Kaffee etwas bezahlen?,coffeepayment
+Wer ist Ansprechpartner?,host
+Wer ist hier zuständig?,host
+Wer ist hier der Chef?,host
+Wer kann mir Fragen zum Freiraum beantworten?,host
+Wer kann mir weitere Frage beantworten?,host
+Wer ist mein Ansprechpartner?,host
+Erzähl mir einen Witz!,joke
+Witz?,joke
+Kennst du einen Witz?,joke
+Wo ist Rudi?,rudi
+Ist Rudi da?,rudi
+Wer ist Rudi?,rudi
+Was macht Rudi?,rudi
+Was kann Rudi?,rudi
