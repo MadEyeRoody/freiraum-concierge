@@ -35,7 +35,6 @@ var credentials =  extend({
   version: 'v1'
 }, bluemix.getServiceCreds('dialog')); // VCAP_SERVICES
 
-
 var dialog_id_in_json = (function() {
   try {
     var dialogsFile = path.join(path.dirname(__filename), 'dialogs', 'dialog-id.json');
@@ -48,10 +47,32 @@ var dialog_id_in_json = (function() {
 
 var dialog_id = process.env.DIALOG_ID || dialog_id_in_json || '<missing-dialog-id>';
 
-// Create the service wrapper
+// Create the service wrapper for dialog
 var dialog = watson.dialog(credentials);
 
 app.post('/conversation', function(req, res, next) {
+  //an dieser Stelle den body.input abfangen und zum nlc schicken
+  console.log(req.body.input);
+  var nlcparams = {
+    classifier: process.env.CLASSIFIER_ID || '<classifier-id>', // pre-trained classifier
+    text: req.body.input
+  };
+  //input austauschen mit klassifizierung aus nlc
+  nlClassifier.classify(nlcparams, function(err, results) {
+    if (err) {
+      return next(err);
+    } else {
+      //res.json(results);
+      if(0.25 < results.classes[0].confidence)
+        req.body.input = results.top_class;
+      else {
+        req.body.input = 'unknown';
+      }
+    }
+  });
+
+  console.log('Request body nach klassifizierung: ', req.body)
+
   var params = extend({ dialog_id: dialog_id }, req.body);
   dialog.conversation(params, function(err, results) {
     if (err)
@@ -64,6 +85,31 @@ app.post('/conversation', function(req, res, next) {
 app.post('/profile', function(req, res, next) {
   var params = extend({ dialog_id: dialog_id }, req.body);
   dialog.getProfile(params, function(err, results) {
+    if (err)
+      return next(err);
+    else
+      res.json(results);
+  });
+});
+
+
+// Create the service wrapper for nlc
+var nlClassifier = watson.natural_language_classifier({
+  url : 'https://gateway.watsonplatform.net/natural-language-classifier/api',
+  username : '<username>',
+  password : '<password>',
+  version  : 'v1'
+});
+
+// Call the pre-trained classifier with body.text
+// Responses are json
+app.post('/api/classify', function(req, res, next) {
+  var params = {
+    classifier: process.env.CLASSIFIER_ID || '<classifier-id>', // pre-trained classifier
+    text: req.body.text
+  };
+
+  nlClassifier.classify(params, function(err, results) {
     if (err)
       return next(err);
     else
