@@ -1,1 +1,25 @@
-curl -i -u "c37bb7bc-8a46-439f-943a-2253d8ae9ae9":"o0zTrgevqeOW" -F training_data=@freecon.csv -F training_metadata="{\"language\":\"de\",\"name\":\"FreeconClassifier\"}" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers"
+Curl Training Command:
+----------------------
+curl -i -u <username>":"<password>" -F training_data=@freecon.csv -F training_metadata="{\"language\":\"de\",\"name\":\"FreeconClassifier\"}" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers"
+
+Rückantwort für Training:
+-------------------------
+{
+  "classifier_id" : "c115edx72-nlc-2524",
+  "name" : "FreeconClassifier",
+  "language" : "de",
+  "created" : "2016-07-12T13:20:09.636Z",
+  "url" : "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115edx72-nlc-2524",
+  "status" : "Training",
+  "status_description" : "The classifier instance is in its training phase, not yet ready to accept classify requests"
+}
+
+
+Curl Check Status Command:
+--------------------------
+curl -u <username>":"<password>" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115edx72-nlc-2524"
+
+
+Curl Test Text:
+---------------
+curl -G -u <username>":"<password>" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115edx72-nlc-2524/classify" --data-urlencode "text=Peruanischer Kaffee schmeckt sehr gut"
