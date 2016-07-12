@@ -1221,7 +1221,7 @@ pre[class*=" language-"] {
   margin-top: 2rem; }
   @media (min-width: 768px) {
     ._content--dialog {
-      width: 50%;
+      width: 100%;
       clear: right;
       float: left;
       padding-right: 2rem; } }
