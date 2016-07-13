@@ -58,8 +58,10 @@ app.post('/conversation', function(req, res, next) {
     text: req.body.input
   };
   //input austauschen mit klassifizierung aus nlc
+  console.log(nlcparams);
   nlClassifier.classify(nlcparams, function(err, results) {
     if (err) {
+      console.log("Error ist im Classifier Aufruf!");
       return next(err);
     } else {
       //res.json(results);
