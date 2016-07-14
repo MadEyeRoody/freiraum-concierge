@@ -83,9 +83,12 @@ $(document).ready(function () {
       // replace userText with nlc response
       $.post('/api/classify', {text: userText})
         .done(function onSucess(answers){
-          params.input = answers.top_class;
+          if(0.25 < answers.classes[0].confidence){
+            params.input = answers.top_class;
+          } else {
+            params.input = 'unknown';
+          }
           console.log('output of nlc: ',params.input);
-          // $confidence.text(Math.floor(answers.classes[0].confidence * 100) + '%');
         })
         .fail(function onError(error) {
           talk('WATSON', error.responseJSON ? error.responseJSON.error : error.statusText);
