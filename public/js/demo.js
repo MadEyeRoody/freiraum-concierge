@@ -65,7 +65,7 @@ $(document).ready(function () {
     }
 
   });
-  
+
   var converse = function(userText) {
     $loading.show();
     // $chatInput.hide();
@@ -76,6 +76,21 @@ $(document).ready(function () {
 
     // build the conversation parameters
     var params = { input : userText };
+
+    console.log('input of user, not altered: ',params.input);
+
+    if(userText != undefined){
+      // replace userText with nlc response
+      $.post('/api/classify', {text: userText})
+        .done(function onSucess(answers){
+          params.input = answers.top_class;
+          console.log('output of nlc: ',params.input);
+          // $confidence.text(Math.floor(answers.classes[0].confidence * 100) + '%');
+        })
+        .fail(function onError(error) {
+          talk('WATSON', error.responseJSON ? error.responseJSON.error : error.statusText);
+        });
+    }
 
     // check if there is a conversation in place and continue that
     // by specifing the conversation_id and client_id
@@ -179,7 +194,7 @@ function replaceMctLinksByHtmlLinks(text){
    text = text.replace(regExp, link);
 
   });
-  
+
   return text;
 }
 
@@ -222,7 +237,7 @@ function replaceAutolearnItemsByButtons(text){
     setTimeout(function() {
       $chatBox.removeClass('chat-box--item_HIDDEN');
     }, 100);
-    
+
     $chatBox.find('button.wds-input').click(function(){
       var text = $(this).text();
       converse(text);

@@ -35,4 +35,9 @@ module.exports = function (app) {
     app.use(errorhandler());
   }
 
+  // When running in Bluemix add rate-limitation
+  // and some other features around security
+  if (process.env.VCAP_APPLICATION)
+    require('./security')(app);
+
 };

@@ -50,29 +50,18 @@ var dialog_id = process.env.DIALOG_ID || dialog_id_in_json || '<missing-dialog-i
 // Create the service wrapper for dialog
 var dialog = watson.dialog(credentials);
 
+// if bluemix credentials exists, then override local
+var nlccredentials =  extend({
+  url : 'https://gateway.watsonplatform.net/natural-language-classifier/api',
+  username : '<username>',
+  password : '<password>',
+  version  : 'v1'
+}, bluemix.getServiceCreds('natural_language_classifier')); // VCAP_SERVICES
+
+// Create the service wrapper for nlc
+var nlClassifier = watson.natural_language_classifier(nlccredentials);
+
 app.post('/conversation', function(req, res, next) {
-  //an dieser Stelle den body.input abfangen und zum nlc schicken
-  console.log(req.body.input);
-  var nlcparams = {
-    classifier: process.env.CLASSIFIER_ID || '<classifier-id>', // pre-trained classifier
-    text: req.body.input
-  };
-  //input austauschen mit klassifizierung aus nlc
-  nlClassifier.classify(nlcparams, function(err, results) {
-    if (err) {
-      return next(err);
-    } else {
-      //res.json(results);
-      if(0.25 < results.classes[0].confidence)
-        req.body.input = results.top_class;
-      else {
-        req.body.input = 'unknown';
-      }
-    }
-  });
-
-  console.log('Request body nach klassifizierung: ', req.body)
-
   var params = extend({ dialog_id: dialog_id }, req.body);
   dialog.conversation(params, function(err, results) {
     if (err)
@@ -92,29 +81,24 @@ app.post('/profile', function(req, res, next) {
   });
 });
 
-
-// Create the service wrapper for nlc
-var nlClassifier = watson.natural_language_classifier({
-  url : 'https://gateway.watsonplatform.net/natural-language-classifier/api',
-  username : '<username>',
-  password : '<password>',
-  version  : 'v1'
-});
-
 // Call the pre-trained classifier with body.text
 // Responses are json
 app.post('/api/classify', function(req, res, next) {
-  var params = {
+  console.log('request accepted. text to classify is: ', req.body.text);
+
+  var nlcparams = {
     classifier: process.env.CLASSIFIER_ID || '<classifier-id>', // pre-trained classifier
     text: req.body.text
   };
 
-  nlClassifier.classify(params, function(err, results) {
+  nlClassifier.classify(nlcparams, function(err, results) {
     if (err)
       return next(err);
     else
       res.json(results);
   });
+
+  // res.json({'top_class' : 'rudi'});
 });
 
 // error-handler settings
@@ -123,3 +107,5 @@ require('./config/error-handler')(app);
 var port = process.env.VCAP_APP_PORT || 3000;
 app.listen(port);
 console.log('listening at:', port);
+
+module.exports = app;

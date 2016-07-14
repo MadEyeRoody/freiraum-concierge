@@ -2,6 +2,9 @@ declared-services:
   dialog-service:
     label: dialog
     plan: standard
+  natural-language-classifier-standard:
+    label: natural_language_classifier
+    plan: standard
 applications:
 - services:
   - dialog-freecon
@@ -9,6 +12,6 @@ applications:
   name: freecon
   command: node app.js
   path: .
-  memory: 512M
+  memory: 128M
   env:
     NODE_ENV: production
