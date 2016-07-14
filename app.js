@@ -27,13 +27,17 @@ var express  = require('express'),
 // Bootstrap application settings
 require('./config/express')(app);
 
+// var localdialogcreds = require('./dialog-cred.json');
 // if bluemix credentials exists, then override local
 var credentials =  extend({
   url: '<url>',
   username: '<username>',
   password: '<password>',
   version: 'v1'
-}, bluemix.getServiceCreds('dialog')); // VCAP_SERVICES
+},
+// localdialogcreds,
+bluemix.getServiceCreds('dialog')); // VCAP_SERVICES
+console.log(credentials);
 
 var dialog_id_in_json = (function() {
   try {
@@ -44,19 +48,23 @@ var dialog_id_in_json = (function() {
   }
 })();
 
-
-var dialog_id = process.env.DIALOG_ID || dialog_id_in_json || '<missing-dialog-id>';
+var dialog_id = process.env.DIALOG_ID || dialog_id_in_json || '<dialog_id>';
 
 // Create the service wrapper for dialog
 var dialog = watson.dialog(credentials);
 
 // if bluemix credentials exists, then override local
+// var localnlccreds = require('./nlc-cred.json');
 var nlccredentials =  extend({
   url : 'https://gateway.watsonplatform.net/natural-language-classifier/api',
   username : '<username>',
   password : '<password>',
   version  : 'v1'
-}, bluemix.getServiceCreds('natural_language_classifier')); // VCAP_SERVICES
+},
+// localnlccreds,
+bluemix.getServiceCreds('natural_language_classifier')); // VCAP_SERVICES
+
+console.log(nlccredentials);
 
 // Create the service wrapper for nlc
 var nlClassifier = watson.natural_language_classifier(nlccredentials);
@@ -91,13 +99,17 @@ app.post('/api/classify', function(req, res, next) {
     text: req.body.text
   };
 
-  nlClassifier.classify(nlcparams, function(err, results) {
-    if (err)
-      return next(err);
-    else
-      res.json(results);
-  });
+  console.log('Die paramter für den nlc aufruf: ', nlcparams)
 
+  nlClassifier.classify(nlcparams, function(err, results) {
+    console.log('in der callback methode zu classify');
+    if (err) {
+      console.log('fehler aufgetreten beim klassifizieren');
+      return next(err);
+    } else {
+      res.json(results);
+    }
+  });
   // res.json({'top_class' : 'rudi'});
 });
 
