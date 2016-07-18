@@ -99,7 +99,7 @@ app.post('/api/classify', function(req, res, next) {
     text: req.body.text
   };
 
-  console.log('Die paramter für den nlc aufruf: ', nlcparams)
+  console.log('Die parameter für den nlc aufruf sind: ', nlcparams);
 
   nlClassifier.classify(nlcparams, function(err, results) {
     console.log('in der callback methode zu classify');
