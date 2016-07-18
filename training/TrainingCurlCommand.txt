@@ -2,7 +2,7 @@ Curl Training Command:
 ----------------------
 curl -i -u <username>":"<password>" -F training_data=@freecon.csv -F training_metadata="{\"language\":\"de\",\"name\":\"FreeconClassifier\"}" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers"
 
-Rückantwort für Training:
+Rï¿½ckantwort fï¿½r Training:
 -------------------------
 {
   "classifier_id" : "c115edx72-nlc-2524",
@@ -23,3 +23,30 @@ curl -u <username>":"<password>" "https://gateway.watsonplatform.net/natural-lan
 Curl Test Text:
 ---------------
 curl -G -u <username>":"<password>" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115edx72-nlc-2524/classify" --data-urlencode "text=Peruanischer Kaffee schmeckt sehr gut"
+
+
+Curl training anfrage beim neuen host:
+__________________________________________
+curl -i -u "<username>":"<passwort>" -F training_data=@freecon.csv -F training_metadata="{\"language\":\"de\",\"name\":\"FreeconClassifier\"}" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers"
+
+Antwort beim neuen Host:
+___________________________________________________________________
+X-Client-IP: 195.200.34.51
+Content-Type: application/json
+Transfer-Encoding: chunked
+X-DP-Watson-Tran-ID: gateway-dp01-894dcdc2-d3ab-4951-b28b-e6246713be9e
+X-Backside-Transport: OK OK
+X-Global-Transaction-ID: 24620048
+
+{
+  "classifier_id" : "c115e5x71-nlc-3295",
+  "name" : "FreeconClassifier",
+  "language" : "de",
+  "created" : "2016-07-15T08:01:48.766Z",
+  "url" : "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115e5x71-nlc-3295",
+  "status" : "Training",
+  "status_description" : "The classifier instance is in its training phase, not yet ready to accept classify requests"
+}
+
+
+curl -u "ec3e5729-ee2e-4dbf-b35e-c1d9002b79ca":"sJOPl2IVYPXR" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115e5x71-nlc-3295"
