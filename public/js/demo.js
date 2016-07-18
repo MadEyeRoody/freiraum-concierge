@@ -94,7 +94,7 @@ $(document).ready(function () {
           nlcresponse = 'unknown';
         }
         console.log('output of nlc: ', nlcresponse);
-        talktodialog(nlcresponse);
+        talkToDialog(nlcresponse);
       })
       .fail(function onError(error) {
         talk('WATSON', error.responseJSON ? error.responseJSON.error : error.statusText);
