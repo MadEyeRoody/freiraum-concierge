@@ -50,3 +50,5 @@ X-Global-Transaction-ID: 24620048
 
 
 curl -u "ec3e5729-ee2e-4dbf-b35e-c1d9002b79ca":"sJOPl2IVYPXR" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115e5x71-nlc-3295"
+
+curl --insecure -u "ec3e5729-ee2e-4dbf-b35e-c1d9002b79ca":"sJOPl2IVYPXR" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115e5x71-nlc-3295"
