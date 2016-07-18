@@ -53,16 +53,11 @@
         <output>
           <prompt selectionType="RANDOM">
             <item>Der Freiraum ist ein sogenannter Coworking-Space. Diese neue Arbeitsform soll verschiedenen
-
               Personen und Teams in einem „Arbeitsraum“ die Möglichkeit geben voneinander zu profitieren.
-
               Sie können unabhängig voneinander agieren und in unterschiedlichen Projekten aktiv sein, oder
-
               auch gemeinsam Projekte verwirklichen und Hilfe sowie neue Mitstreiter finden.
-
-              Weitere Informationen zu den einzelnen „Area´s“ im Freiraum findest du &lt;hier&gt;.
-
-              &lt;Link zu Freiraum PDF&gt;.</item>
+              Weitere Informationen zu den einzelnen „Area´s“ im Freiraum findest du !hier!.
+              !Link zu Freiraum PDF!.</item>
           </prompt>
         </output>
       </input>
@@ -72,9 +67,9 @@
       </grammar>
       <output>
         <prompt selectionType="RANDOM">
-          <item>Eine kleine Anleitung zur Nutzung der einzelnen „Area´s“ findest Du &lt;hier&gt;. Natürlich kann Dir
+          <item>Eine kleine Anleitung zur Nutzung der einzelnen „Area´s“ findest Du !hier!. Natürlich kann Dir
             auch der jeweilige HOST weiterhelfen.
-            &lt;Link zu Freiraum PDF&gt;.</item>
+            !Link zu Freiraum PDF!.</item>
         </prompt>
       </output>
     </input>
@@ -86,8 +81,8 @@
         <prompt selectionType="RANDOM">
           <item>Eine Hausordnung in der Form gibt es bei uns nicht. Uns ist wichtig das folgende Werte gelebt
             werden: Gemeinsam – Rücksicht – Fair Use
-            Für die einzelnen „Area´s“ gibt es eine Nutzungsempfehlung, diese findest Du &lt;hier&gt;.
-            &lt;Link zu Freiraum PDF&gt;</item>
+            Für die einzelnen „Area´s“ gibt es eine Nutzungsempfehlung, diese findest Du ...hier....
+            ...Link zu Freiraum PDF...</item>
         </prompt>
       </output>
     </input>
@@ -111,7 +106,7 @@
       </grammar>
       <output>
         <prompt selectionType="RANDOM">
-          <item>&lt;Verknüpfung zu ideen@fiduciagad.de Notes-Kalender war mal die Idee&gt;</item>
+          <item>!Verknüpfung zu ideen@fiduciagad.de Notes-Kalender war mal die Idee!</item>
         </prompt>
       </output>
     </input>
@@ -132,7 +127,7 @@
       </grammar>
       <output>
         <prompt selectionType="RANDOM">
-          <item>Der Freiraum / die Innovationswerkstatt steht für alle Mitarbeiter der Fiducia &amp; GAD IT AG offen.
+          <item>Der Freiraum / die Innovationswerkstatt steht für alle Mitarbeiter der Fiducia GAD IT AG offen.
             Daneben dient er natürlich auch für Veranstaltungen mit unseren Kunden oder Dritten. Die
             Nutzungsmöglichkeiten sind vielfältig, bei Bedarf am besten den HOST fragen.</item>
         </prompt>
@@ -145,9 +140,9 @@
         <output>
           <prompt selectionType="RANDOM">
             <item>Jeder ist für die Kaffeeversorgung zuständig. Wer die Kanne leert, macht Sie wieder voll.
-              Wie das geht, siehst Du &lt;hier&gt;.</item>
+              Wie das geht, siehst Du !hier!.</item>
             <item>Wir sind hier kein 5 Sterne Hotel, wer die Kanne leer macht, füllt Sie wieder auf.
-              Wie das geht, siehst Du &lt;hier&gt;.</item>
+              Wie das geht, siehst Du !hier!.</item>
           </prompt>
         </output>
       </input>
@@ -158,7 +153,7 @@
         <output>
           <prompt selectionType="RANDOM">
             <item>Der Kaffee ist generell kostenlos. Wer die Kanne leer macht, muss neuen machen.
-              Die Anleitung findest Du &lt;hier&gt;.</item>
+              Die Anleitung findest Du ...hier....</item>
           </prompt>
         </output>
       </input>
@@ -168,11 +163,11 @@
         </grammar>
         <output>
           <prompt selectionType="RANDOM">
-            <item>Ich, oder den &lt;HOST&gt; des Tages.
-              Rudi, wenn Rudi nicht da, der &lt;HOST&gt; des Tages.
-              Cortana, viel Glück dabei – oder den &lt;HOST&gt; des Tages.
-              Siri, einen Versuch wert, aber wende Dich lieber an den &lt;HOST&gt; des Tages.
-              &lt;Link zu einer Liste mit den Namen und Telefonnummern der HOST´s&gt;</item>
+            <item>Ich, oder den Host des Tages. (schau auf die Host Wand in der Küche)</item>
+              <item>Rudi, wenn Rudi nicht da, der Host des Tages. (schau auf die Host Wand in der Küche)</item>
+              <item>Cortana, viel Glück dabei – oder den Host des Tages. (schau auf die Host Wand in der Küche)</item>
+              <item>Siri, einen Versuch wert, aber wende Dich lieber an den Host des Tages. (schau auf die Host Wand in der Küche)</item>
+              <item>...Link zu einer Liste mit den Namen und Telefonnummern der HOST´s...</item>
           </prompt>
         </output>
       </input>
