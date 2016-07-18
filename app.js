@@ -108,6 +108,8 @@ app.post('/api/classify', function(req, res, next) {
       return next(err);
     } else {
       res.json(results);
+      console.log('request accepted. category is: ',results);
+
     }
   });
   // res.json({'top_class' : 'rudi'});
