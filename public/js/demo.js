@@ -93,7 +93,7 @@ $(document).ready(function () {
         } else {
           nlcresponse = 'unknown';
         }
-        console.log('output of nlc: ', nlcresponse);
+        console.log('output of nlc: ', nlcresponse, ' confidence of classification: ', answers.classes[0].confidence);
         talkToDialog(nlcresponse);
       })
       .fail(function onError(error) {
