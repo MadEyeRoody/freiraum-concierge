@@ -89,11 +89,7 @@ $(document).ready(function () {
             params.input = 'unknown';
           }
           console.log('output of nlc: ',params.input);
-        })
-        .fail(function onError(error) {
-          talk('WATSON', error.responseJSON ? error.responseJSON.error : error.statusText);
-        });
-    }
+
 
     // check if there is a conversation in place and continue that
     // by specifing the conversation_id and client_id
@@ -136,7 +132,53 @@ $(document).ready(function () {
         scrollChatToBottom();
         $chatInput.focus();
       });
+    })
+    .fail(function onError(error) {
+      talk('WATSON', error.responseJSON ? error.responseJSON.error : error.statusText);
+    });
+}else {
+  // check if there is a conversation in place and continue that
+  // by specifing the conversation_id and client_id
+  if (conversation_id) {
+    params.conversation_id = conversation_id;
+    params.client_id = client_id;
+  }
 
+  $.post('/conversation', params)
+    .done(function onSuccess(dialog) {
+      $chatInput.val(''); // clear the text input
+
+      $jsonPanel.html(JSON.stringify(dialog.conversation, null, 2));
+
+      // update conversation variables
+      conversation_id = dialog.conversation.conversation_id;
+      client_id = dialog.conversation.client_id;
+
+      var texts = dialog.conversation.response;
+      var response = texts.join('<br/>'); // &lt;br/&gt; is <br/>
+
+      $chatInput.show();
+      $chatInput[0].focus();
+
+      $information.empty();
+
+      addProperty($information, 'Dialog ID: ', dialog.dialog_id);
+      addProperty($information, 'Conversation ID: ', conversation_id);
+      addProperty($information, 'Client ID: ', client_id);
+
+      talk('WATSON', response); // show
+
+      getProfile();
+    })
+    .fail(function(error){
+      talk('WATSON', error.responseJSON ? error.responseJSON.error : error.statusText);
+    })
+    .always(function always(){
+      $loading.hide();
+      scrollChatToBottom();
+      $chatInput.focus();
+    });
+}
   };
 
   var getProfile = function() {
