@@ -85,6 +85,7 @@ $(document).ready(function () {
 
   var talkToNlc = function(userText){
     var nlcresponse = '';
+      var nlcProximity='';
     // replace userText with nlc response
     $.post('/api/classify', {text: userText})
       .done(function onSucess(answers){
@@ -94,6 +95,8 @@ $(document).ready(function () {
           nlcresponse = 'unknown';
         }
         console.log('output of nlc: ', nlcresponse, ' confidence of classification: ', answers.classes[0].confidence);
+          nlcProximity='Ich bin mir zu '+answers.classes[0].confidence.toPrecision(2)+'% sicher, dass du etwas zum Thema &quot;'+answers.top_class+'&quot; wissen willst!';
+          talk('WATSON',nlcProximity);
         talkToDialog(nlcresponse);
       })
       .fail(function onError(error) {
