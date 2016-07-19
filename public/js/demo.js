@@ -97,7 +97,7 @@ $(document).ready(function () {
 
         $information.empty();
         addProperty($information, 'Klassifizierung der Frage: ', answers.top_class);
-        addProperty($information, 'Konfidenz der Aussage: ', answers.classes[0].confidence);
+        addProperty($information, 'Konfidenz der Aussage: ', Math.floor(answers.classes[0].confidence * 100) + '%');
         addProperty($information, 'Weitergeleiteter Intent: ', nlcresponse);
 
         console.log('output of nlc: ', nlcresponse, ' confidence of classification: ', answers.classes[0].confidence);
