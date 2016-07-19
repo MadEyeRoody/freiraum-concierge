@@ -1221,7 +1221,7 @@ pre[class*=" language-"] {
   margin-top: 2rem; }
   @media (min-width: 768px) {
     ._content--dialog {
-      width: 100%;
+      width: 70%;
       clear: right;
       float: left;
       padding-right: 2rem; } }
@@ -1230,7 +1230,7 @@ pre[class*=" language-"] {
   margin-top: 0; }
   @media (min-width: 768px) {
     ._content--data {
-      width: 50%;
+      width: 30%;
       clear: right;
       float: left;
       margin-left: 0;

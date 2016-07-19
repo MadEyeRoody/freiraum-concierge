@@ -89,14 +89,18 @@ $(document).ready(function () {
     // replace userText with nlc response
     $.post('/api/classify', {text: userText})
       .done(function onSucess(answers){
-        if(0.20 < answers.classes[0].confidence){
+        if(0.30 < answers.classes[0].confidence){
           nlcresponse = answers.top_class;
         } else {
           nlcresponse = 'unknown';
         }
+
+        $information.empty();
+        addProperty($information, 'Klassifizierung der Frage: ', answers.top_class);
+        addProperty($information, 'Konfidenz der Aussage: ', answers.classes[0].confidence);
+        addProperty($information, 'Weitergeleiteter Intent: ', nlcresponse);
+
         console.log('output of nlc: ', nlcresponse, ' confidence of classification: ', answers.classes[0].confidence);
-          nlcProximity='Ich bin mir zu '+answers.classes[0].confidence.toPrecision(2)+'% sicher, dass du etwas zum Thema &quot;'+answers.top_class+'&quot; wissen willst!';
-          talk('WATSON',nlcProximity);
         talkToDialog(nlcresponse);
       })
       .fail(function onError(error) {
@@ -130,12 +134,6 @@ $(document).ready(function () {
 
         $chatInput.show();
         $chatInput[0].focus();
-
-        $information.empty();
-
-        addProperty($information, 'Dialog ID: ', dialog.dialog_id);
-        addProperty($information, 'Conversation ID: ', conversation_id);
-        addProperty($information, 'Client ID: ', client_id);
 
         talk('WATSON', response); // show
 
