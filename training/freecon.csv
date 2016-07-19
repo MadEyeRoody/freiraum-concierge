@@ -30,12 +30,24 @@ Wann ist hier auf?,businesshours
 Wann kann ich rein?,businesshours
 Wer kann hier alles rein?,access
 Wer darf den Raum nutzen?,access
-Wie funktioniert die Kaffeemaschine?,coffee
-Wer macht hier Kaffee?,coffee
-Wer kocht Kaffee?,coffee
+Wie funktioniert die Kaffeemaschine?,coffeemachine
+Wie mache ich Kaffee?, coffeemachine
+Wer macht hier Kaffee?,makingcoffee
+Wer kocht Kaffee?,makingcoffee
+Wo gibts hier Kaffe?,coffee
+Ich will Kaffee?,coffee
+Woher bekomme ich Kaffe?,coffee
+Was ist 2+2?,math
+Was ist 2*2?,math
+Wieviel ist 32/7?,math
+Wie läuft das mit dem Grill?,grill
+Kann ich den Grill reservieren?,grill
+Was muss ich organisieren um zu Grillen?,grill
 Kaffee?,coffee
 Ist der der Kaffee kostenlos?,coffeepayment
 Muss man für den Kaffee etwas bezahlen?,coffeepayment
+Wieviel kostet der Kaffee?,coffeepayment
+Was Kostet der Kaffee?,coffeepayment
 Wer ist Ansprechpartner?,host
 Wer ist hier zuständig?,host
 Wer ist hier der Chef?,host
@@ -50,3 +62,30 @@ Ist Rudi da?,rudi
 Wer ist Rudi?,rudi
 Was macht Rudi?,rudi
 Was kann Rudi?,rudi
+Für wieviele Personen ist der Freiraum geeignet?,capacity
+Für wieviele Personen ist die Innovationswerkstatt geeignet?,capacity
+Wie hoch ist die Kapazität der Innovationswerkstatt?,capacity
+Wie hoch ist die Kapazität des Freiraums?,capacity
+Wieviele Leute passen rein?,capacity
+Gibt es ein Raumkonzept?,rooms
+Welche Räume gibt es?,rooms
+Welche Hausordnung gilt?,rules
+Gibt es eine Hausordnung?,rules
+Gibt es Regeln?,rules
+Wie siehts mit Essen aus?,food
+Wo gibts was zu essen?,food
+Bekomme ich hier was zu essen?,food
+Essen?,food
+Welche Technik ist vorhanden?,equipment
+Wie ist die technische Ausstattung?,equipment
+Was steht alles zur Verfügung?,equipment
+Was für Material steht zur Verfügung?,equipment
+Wo ist die Garderobe?,luggage
+Wo kann ich mein Gepäck abstellen?,luggage
+Kann ich meine Sachen irgendwo wegsperren?,luggage
+Gibt es Schließfächer?,lugagge
+Wo kann ich meine Sachen sicher verwahren?,lugagge
+Gibt es Empfehlungen für die Raumnutzung?,usage
+Wie ist die Raumnutzung vorgesehen?,usage
+Wie sind die Räume zu nutzen?,usage
+Gibt es Tipps wie die Räume genutzt werden können?,usage
