@@ -13,9 +13,7 @@
         <default>
           <output>
             <prompt selectionType="RANDOM">
-              <item>Ich habe dich nicht verstanden.</item>
-              <item>Wiederhole das bitte noch einmal.</item>
-              <item>Wie meinst du das?</item>
+              <item>Dazu kann ich dir leider keine Antwort geben</item>
             </prompt>
           </output>
         </default>
@@ -135,7 +133,7 @@
     </input>
       <input>
         <grammar>
-          <item>coffee</item>
+          <item>makingcoffee</item>
         </grammar>
         <output>
           <prompt selectionType="RANDOM">
@@ -148,12 +146,152 @@
       </input>
       <input>
         <grammar>
+          <item>coffee</item>
+        </grammar>
+        <output>
+          <prompt selectionType="RANDOM">
+            <item>Kaffee gibts in der Küche (gegenüber vom Außeneingang). Wenn noch keiner gemacht ist, wirst du wohl selber einen machen müssen :-)</item>
+          </prompt>
+        </output>
+      </input>
+      <input>
+        <grammar>
           <item>coffeepayment</item>
         </grammar>
         <output>
           <prompt selectionType="RANDOM">
-            <item>Der Kaffee ist generell kostenlos. Wer die Kanne leer macht, muss neuen machen.
-              Die Anleitung findest Du ...hier....</item>
+            <item>Der Kaffee ist generell kostenlos. Wer die Kanne leer macht, muss neuen machen.</item>
+          </prompt>
+        </output>
+      </input>
+      <input>
+        <grammar>
+          <item>coffeemachine</item>
+        </grammar>
+        <output>
+          <prompt selectionType="RANDOM">
+            <item>Die Kaffeemaschine funktioniert ganz einfach: achte darauf, dass sie ausgeschaltet ist
+              stelle die Kanne in die Maschhine (Außgieser kannst du drinnen lassen).
+            Filter findest du im linken Hängeschrank. Befülle den Filter mit 2 gehäuften Löffeln Kaffee und steck ihn über der Kanne in die Maschine.
+            Über dem Filtereinschub ist eine Klappe fürs Wasser, diese Aufmachen und mit 2,2l Wasser befüllen (oberer Eichstrich am Messbecher), dann einfach noch einschalten und warten,
+            wenn die Kaffeemaschine piept, braucht sie noch etwas Zeit zum nachlaufen.</item>
+          </prompt>
+        </output>
+        <input>
+          <grammar>
+            <item>grill</item>
+          </grammar>
+          <output>
+            <prompt selectionType="RANDOM">
+              <item>Der Grill ist grundsätzlich auch über die Hosts zu reservieren, da der Freiraum jedoch keine Partylocation ist oder werden soll,
+              sollte zuvor auch eine Arbeit/ Workshop/ Nutzung des Freiraums passiert sein. Alle Utensilien für den Grill (außer Zange) sind bei Lachner
+              anzufordern oder selbst mitzubringen. Dasselbe gilt für Getränke! Sollte eine Gasflasche leer sein, steht eine Ersatzflsche zur verfügung, dies Teilt ihr bitte den Hosts mit!
+                Und natürlich ist der Grill auch wieder so zu verlassen wie er vorgefunden wurde :-)</item>
+            </prompt>
+          </output>
+        </input>
+        <input>
+          <grammar>
+            <item>rudi</item>
+          </grammar>
+          <output>
+            <prompt selectionType="RANDOM">
+              <item>Rudi wohnt hier, sei dankbar, dass du seine Wohnung als Gast nutzen darfst ;-)</item>
+            </prompt>
+          </output>
+        </input>
+        <input>
+          <grammar>
+            <item>math</item>
+          </grammar>
+          <output>
+            <prompt selectionType="RANDOM">
+              <item>Ich bin nicht dein Taschenrechner, das darfst du schön selbst rechnen :-)</item>
+            </prompt>
+          </output>
+        </input>
+        <input>
+          <grammar>
+            <item>equipment</item>
+          </grammar>
+          <output>
+            <prompt selectionType="RANDOM">
+              <item>Wir haben hier mehrere Beamer in der Arena, Fernseher zum Präsentieren im Marktplatz und in den Räumen,
+              Flipcharts, Pinboard, Tafeln, einen Moderationskoffer und auch ein offenes WLAN. Falls es fragen zur Benutzung
+              der Medien gibt, wende dich bitte an den Host des Tages</item>
+            </prompt>
+          </output>
+        </input>
+      </input>
+      <input>
+        <grammar>
+          <item>capacity</item>
+        </grammar>
+        <output>
+          <prompt selectionType="RANDOM">
+            <item>von Kleingruppen bis zu 100 Personen ist alles möglich, einfach mal den HOST fragen.</item>
+            <item>Ob nur zu 2 oder als große Gruppe, einfach den HOST fragen. Die Maximalkapazität liegt bei ca. 100 Personen gleichzeitig.</item>
+          </prompt>
+        </output>
+      </input>
+      <input>
+        <grammar>
+          <item>rooms</item>
+        </grammar>
+        <output>
+          <prompt selectionType="RANDOM">
+            <item>Arena, Marktplatz, Aussenbereich, Fokuszelle, Arbeitsgalerie, Rückzugsgalerie, Meetingräume und Küche stehen für kreatives Arbeiten zur Verfügung.</item>
+         </prompt>
+        </output>
+      </input>
+      <input>
+        <grammar>
+          <item>food</item>
+        </grammar>
+        <output>
+          <prompt selectionType="RANDOM">
+            <item>Essen gibts bei uns nicht zum Erwerben, entweder jemand bringt etwas mit und du bekommst was davon, oder du musst in die
+            Kantine/ IT Corner gehen um was zu essen zu bekommen.</item>
+          </prompt>
+        </output>
+      </input>
+      <input>
+        <grammar>
+          <item>luggage</item>
+        </grammar>
+        <output>
+          <prompt selectionType="RANDOM">
+            <item>Garderobe und Schließfächer sind bestellt und sollten in kürze eintreffen, bis dahin kläre bitte mit dem Host ab, wo du
+            am besten deine Sachen abstellt oder ob er ein Auge drauf haben kann.</item>
+          </prompt>
+        </output>
+      </input>
+      <input>
+        <grammar>
+          <item>rules</item>
+        </grammar>
+        <output>
+          <prompt selectionType="RANDOM">
+            <item>
+              #Gemeinsam
+              #Fair Use
+              #Rücksicht
+
+              Daneben gibt es noch eine Empfehlung für die Raumnutzung. Einfach nochmal danach suchen
+            </item>
+          </prompt>
+        </output>
+      </input>
+      <input>
+        <grammar>
+          <item>usage</item>
+        </grammar>
+        <output>
+          <prompt selectionType="RANDOM">
+            <item>Der Freiraum/ die Innovationswerkstatt ist ein Ort zum Coworking und Offenem Arbeiten. Das bedeutet, dass mit gegenseitiger Rücksicht
+              zwischen den Gruppen alles im Raum verwendet und auch umgestellt werden darf. Bringt aber bitte wieder alles in Ordnung bevor ihr geht :-)
+              Und noch ein Satz zu den Besprechungsräumen: Es ist kein sehr "Offenes" und "Kooperatives" Arbeiten, wenn ihr die ganze Zeit in einem Meetingraum sitzt ;-)
+            </item>
           </prompt>
         </output>
       </input>
@@ -163,10 +301,10 @@
         </grammar>
         <output>
           <prompt selectionType="RANDOM">
-            <item>Ich, oder den Host des Tages. (schau auf die Host Wand in der Küche)</item>
+            <item>Ich, oder der Host des Tages. (schau auf die Host Wand in der Küche)</item>
               <item>Rudi, wenn Rudi nicht da, der Host des Tages. (schau auf die Host Wand in der Küche)</item>
-              <item>Cortana, viel Glück dabei – oder den Host des Tages. (schau auf die Host Wand in der Küche)</item>
-              <item>Siri, einen Versuch wert, aber wende Dich lieber an den Host des Tages. (schau auf die Host Wand in der Küche)</item>
+              <item>Cortana, aber viel Glück dabei – oder der Host des Tages. (schau auf die Host Wand in der Küche)</item>
+              <item>Siri wäre einen Versuch wert, aber wende Dich lieber der Host des Tages. (schau auf die Host Wand in der Küche)</item>
               <item>...Link zu einer Liste mit den Namen und Telefonnummern der HOST´s...</item>
           </prompt>
         </output>
