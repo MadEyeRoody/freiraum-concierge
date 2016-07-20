@@ -17,12 +17,12 @@ R�ckantwort f�r Training:
 
 Curl Check Status Command:
 --------------------------
-curl -u <username>":"<password>" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115edx72-nlc-2524"
+curl -u "<username>":"<password>" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115edx72-nlc-2524"
 
 
 Curl Test Text:
 ---------------
-curl -G -u <username>":"<password>" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115edx72-nlc-2524/classify" --data-urlencode "text=Peruanischer Kaffee schmeckt sehr gut"
+curl -G -u "<username>":"<password>" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115edx72-nlc-2524/classify" --data-urlencode "text=Peruanischer Kaffee schmeckt sehr gut"
 
 
 Curl training anfrage beim neuen host:
@@ -49,6 +49,6 @@ X-Global-Transaction-ID: 24620048
 }
 
 
-curl -u "ec3e5729-ee2e-4dbf-b35e-c1d9002b79ca":"sJOPl2IVYPXR" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115e5x71-nlc-3295"
+curl -u "<username>":"<password>" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115e5x71-nlc-3295"
 
-curl --insecure -u "ec3e5729-ee2e-4dbf-b35e-c1d9002b79ca":"sJOPl2IVYPXR" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115e5x71-nlc-3295"
+curl --insecure -u "<username>":"<password>" "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers/c115e5x71-nlc-3295"

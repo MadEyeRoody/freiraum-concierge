@@ -38,7 +38,7 @@ var credentials =  extend({
 },
 // localdialogcreds,
 bluemix.getServiceCreds('dialog')); // VCAP_SERVICES
-console.log(credentials);
+// console.log(credentials);
 
 var dialog_id_in_json = (function() {
   try {
@@ -65,7 +65,7 @@ var nlccredentials =  extend({
 // localnlccreds,
 bluemix.getServiceCreds('natural_language_classifier')); // VCAP_SERVICES
 
-console.log(nlccredentials);
+// console.log(nlccredentials);
 
 // Create the service wrapper for nlc
 var nlClassifier = watson.natural_language_classifier(nlccredentials);
@@ -132,15 +132,14 @@ app.post('/api/classify', function(req, res, next) {
 app.post('/api/save', function(req, res, next){
     console.log('saving request received. Payload is: ', req.body.dialog);
 
-  /*
-    db.put(req.body.dialog)
-          .then(function (response){
-            res.json(response);
-          })
-          .catch(function (err){
-           return next(err);
-          });
-          */
+    db.post(req.body.dialog)
+        .then(function (response){
+          var resp = {status: 'success'};
+          res.json(resp);
+        })
+        .catch(function (err){
+         return next(err);
+        });
 });
 
 // error-handler settings
