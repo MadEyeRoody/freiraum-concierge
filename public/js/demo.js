@@ -20,6 +20,7 @@
 
 // conversation variables
 var conversation_id, client_id;
+var fulldialog;
 
 var inputHistory = [];
 var inputHistoryPointer = -1
@@ -29,7 +30,11 @@ $(document).ready(function () {
     $jsonPanel = $('#json-panel .base--textarea'),
     $information = $('.data--information'),
     $profile = $('.data--profile'),
-    $loading = $('.loader');
+    $loading = $('.loader'),
+    $feedback = $('.data--feedback'),
+    $feedback_yes = $('.data--feedback-yes'),
+    $feedback_no = $('.data--feedback-no'),
+    $feedback_thanks = $('.data--feedback-thanks');
 
 
   $chatInput.keyup(function(event){
@@ -37,7 +42,6 @@ $(document).ready(function () {
       converse($(this).val());
     }
   });
-
 
   $chatInput.keydown(function(event){
     switch(event.which){
@@ -63,11 +67,36 @@ $(document).ready(function () {
       }
     	break;
     }
-
   });
+
+  $feedback_yes.click(function(event){
+    console.log('user hat ja geklickt');
+    logQuestionWithClass(true);
+  });
+
+  $feedback_no.click(function(event){
+    console.log('user hat nein geklickt');
+    logQuestionWithClass(false);
+  });
+
+  var logQuestionWithClass = function(classiscorrect){
+    $feedback.hide();
+    $feedback_thanks.show();
+    // TODO request an Server mit vollständigem JSON, Frage, Klassifikation, Konfidenz, Feedback
+    fulldialog.feedback = classiscorrect;
+    $.post('/api/save', {dialog: fulldialog})
+      .done(function onSucess(answers){
+        console.log('answer of db: ', answers);
+      })
+      .fail(function onError(error) {
+        console.log('error from db: ', error.responseJSON ? error.responseJSON.error : error.statusText);
+      });
+  }
 
   var converse = function(userText) {
     $loading.show();
+    $feedback.hide();
+    $feedback_thanks.hide();
     // $chatInput.hide();
 
     // check if the user typed text or not and post it in chatbox
@@ -85,7 +114,6 @@ $(document).ready(function () {
 
   var talkToNlc = function(userText){
     var nlcresponse = '';
-      var nlcProximity='';
     // replace userText with nlc response
     $.post('/api/classify', {text: userText})
       .done(function onSucess(answers){
@@ -94,11 +122,15 @@ $(document).ready(function () {
         } else {
           nlcresponse = 'unknown';
         }
+        fulldialog.question = userText;
+        fulldialog.class = answers.top_class;
+        fulldialog.confidence = anwers.classes[0].confidence;
 
         $information.empty();
         addProperty($information, 'Klassifizierung der Frage: ', answers.top_class);
         addProperty($information, 'Konfidenz der Aussage: ', Math.floor(answers.classes[0].confidence * 100) + '%');
         addProperty($information, 'Weitergeleiteter Intent: ', nlcresponse);
+        $feedback.show();
 
         console.log('output of nlc: ', nlcresponse, ' confidence of classification: ', answers.classes[0].confidence);
         talkToDialog(nlcresponse);

@@ -22,7 +22,8 @@ var express  = require('express'),
   path       = require('path'),
   bluemix    = require('./config/bluemix'),
   extend     = require('util')._extend,
-  watson     = require('watson-developer-cloud');
+  watson     = require('watson-developer-cloud')
+  cloudant   = require('pouchdb');
 
 // Bootstrap application settings
 require('./config/express')(app);
@@ -79,6 +80,19 @@ app.post('/conversation', function(req, res, next) {
   });
 });
 
+// create cloudant credentials
+var cloudantcredentials = extend({
+  username: '<username>',
+  password : '<password>',
+  url : '<url>',
+  host : '<host>',
+  port : '<port>',
+  dbname : '/freecon_saved_dialogs';
+},
+bluemix.getServiceCreds('cloudantNoSQLDB')); // VCAP_SERVICES
+
+var pouchdb = new PouchDB(cloudantcredentials.url + cloudantcredentials.dbname);
+
 app.post('/profile', function(req, res, next) {
   var params = extend({ dialog_id: dialog_id }, req.body);
   dialog.getProfile(params, function(err, results) {
@@ -113,6 +127,20 @@ app.post('/api/classify', function(req, res, next) {
     }
   });
   // res.json({'top_class' : 'rudi'});
+});
+
+app.post('/api/save', function(req, res, next){
+    console.log('saving request received. Payload is: ', req.body.dialog);
+
+  /*
+    pouchdb.put(req.body.dialog)
+          .then(function (response){
+            res.json(response);
+          })
+          .catch(function (err){
+           return next(err);
+          });
+          */
 });
 
 // error-handler settings
