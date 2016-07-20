@@ -22,8 +22,8 @@ var express  = require('express'),
   path       = require('path'),
   bluemix    = require('./config/bluemix'),
   extend     = require('util')._extend,
-  watson     = require('watson-developer-cloud')
-  cloudant   = require('pouchdb');
+  watson     = require('watson-developer-cloud'),
+  pouchdb    = require('pouchdb');
 
 // Bootstrap application settings
 require('./config/express')(app);
@@ -87,11 +87,11 @@ var cloudantcredentials = extend({
   url : '<url>',
   host : '<host>',
   port : '<port>',
-  dbname : '/freecon_saved_dialogs';
+  dbname : '/freecon_saved_dialogs'
 },
 bluemix.getServiceCreds('cloudantNoSQLDB')); // VCAP_SERVICES
 
-var pouchdb = new PouchDB(cloudantcredentials.url + cloudantcredentials.dbname);
+var db = new pouchdb(cloudantcredentials.url + cloudantcredentials.dbname);
 
 app.post('/profile', function(req, res, next) {
   var params = extend({ dialog_id: dialog_id }, req.body);
@@ -133,7 +133,7 @@ app.post('/api/save', function(req, res, next){
     console.log('saving request received. Payload is: ', req.body.dialog);
 
   /*
-    pouchdb.put(req.body.dialog)
+    db.put(req.body.dialog)
           .then(function (response){
             res.json(response);
           })

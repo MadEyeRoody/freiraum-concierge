@@ -122,9 +122,9 @@ $(document).ready(function () {
         } else {
           nlcresponse = 'unknown';
         }
-        fulldialog.question = userText;
+        fulldialog = {question: userText};
         fulldialog.class = answers.top_class;
-        fulldialog.confidence = anwers.classes[0].confidence;
+        fulldialog.confidence = answers.classes[0].confidence;
 
         $information.empty();
         addProperty($information, 'Klassifizierung der Frage: ', answers.top_class);
