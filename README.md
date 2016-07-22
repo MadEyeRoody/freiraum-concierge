@@ -1,8 +1,12 @@
 # freiraum-concierge
 
-Basierend auf der dialog-nodejs app
+## Basierend auf https://github.com/watson-developer-cloud/dialog-nodejs
 
-  The Dialog starter application in Node.js is a sample that demonstrates how the IBM Watson [Dialog service][service_url] works in a specific context.
+---
+
+# dialog-nodejs
+
+The Dialog starter application in Node.js is a sample that demonstrates how the IBM Watson [Dialog service][service_url] works in a specific context.
 <p align="center">
 <img src="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/img/service-gifs/dialog.gif" width="400">
 </p>
