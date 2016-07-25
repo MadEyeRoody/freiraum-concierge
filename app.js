@@ -28,7 +28,6 @@ var express  = require('express'),
 // Bootstrap application settings
 require('./config/express')(app);
 
-// var localdialogcreds = require('./dialog-cred.json');
 // if bluemix credentials exists, then override local
 var credentials =  extend({
   url: '<url>',
@@ -36,9 +35,14 @@ var credentials =  extend({
   password: '<password>',
   version: 'v1'
 },
-// localdialogcreds,
 bluemix.getServiceCreds('dialog')); // VCAP_SERVICES
-// console.log(credentials);
+
+try {
+    var vcap = JSON.parse(fs.readFileSync('./VCAP_Services.json'));
+    credentials = extend(credentials, vcap.dialog[0].credentials);
+} catch (e) {
+    console.log('credentials json not existent')
+}
 
 var dialog_id_in_json = (function() {
   try {
@@ -55,17 +59,20 @@ var dialog_id = process.env.DIALOG_ID || dialog_id_in_json || '<dialog_id>';
 var dialog = watson.dialog(credentials);
 
 // if bluemix credentials exists, then override local
-// var localnlccreds = require('./nlc-cred.json');
 var nlccredentials =  extend({
   url : 'https://gateway.watsonplatform.net/natural-language-classifier/api',
   username : '<username>',
   password : '<password>',
   version  : 'v1'
 },
-// localnlccreds,
 bluemix.getServiceCreds('natural_language_classifier')); // VCAP_SERVICES
 
-// console.log(nlccredentials);
+try {
+    var vcap = JSON.parse(fs.readFileSync('./VCAP_Services.json'));
+    nlccredentials = extend(nlccredentials, vcap.natural_language_classifier[0].credentials);
+} catch (e) {
+    console.log('credentials json not existent')
+}
 
 // Create the service wrapper for nlc
 var nlClassifier = watson.natural_language_classifier(nlccredentials);
@@ -103,13 +110,24 @@ app.post('/profile', function(req, res, next) {
   });
 });
 
+var classifier_id_in_json = (function() {
+  try {
+    var classifierFile = path.join(path.dirname(__filename), 'dialogs', 'classifier-id.json');
+    var obj = JSON.parse(fs.readFileSync(classifierFile));
+    return obj[Object.keys(obj)[0]].id;
+  } catch (e) {
+  }
+})();
+
+var classifier-id = process.env.CLASSIFIER_ID || classifier_id_in_json ||'<classifier-id>';
+
 // Call the pre-trained classifier with body.text
 // Responses are json
 app.post('/api/classify', function(req, res, next) {
   console.log('request accepted. text to classify is: ', req.body.text);
 
   var nlcparams = {
-    classifier: process.env.CLASSIFIER_ID || '<classifier-id>', // pre-trained classifier
+    classifier: classifier-id, // pre-trained classifier
     text: req.body.text
   };
 

@@ -177,19 +177,20 @@ function updateDialogFiles(credentials) {
 
 
 
-var dialogcreds = extend({
-  url: '<url>',
-  username: '<username>',
-  password: '<password>',
-  version: 'v1'
+var nlccredentials =  extend({
+  url : 'https://gateway.watsonplatform.net/natural-language-classifier/api',
+  username : '<username>',
+  password : '<password>',
+  version  : 'v1'
 },
-bluemix.getServiceCreds('dialog')
-);
+bluemix.getServiceCreds('natural_language_classifier')); // VCAP_SERVICES
 
 try {
     var vcap = JSON.parse(fs.readFileSync('./VCAP_Services.json'));
-    dialogcreds = extend(dialogcreds, vcap.dialog[0].credentials);
+    nlccredentials = extend(nlccredentials, vcap.natural_language_classifier[0].credentials);
 } catch (e) {
     console.log('credentials json not existent')
 }
-updateDialogFiles(dialogcreds);
+
+//TODO Methode ändern um nlc-id auszulesen
+updateDialogFiles(nlccredentials);

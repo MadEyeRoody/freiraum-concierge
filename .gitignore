@@ -3,3 +3,4 @@ node_modules
 dialog-cred.json
 nlc-cred.json
 .idea
+VCAP_Services.json
