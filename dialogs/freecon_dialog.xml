@@ -13,7 +13,11 @@
         <default>
           <output>
             <prompt selectionType="RANDOM">
-              <item>Dazu kann ich dir leider keine Antwort geben</item>
+              <item>Dazu kann ich dir leider keine Antwort geben.</item>
+              <item>Das weiß ich leider nicht.</item>
+              <item>Da weiß ich auch nicht weiter.</item>
+              <item>Ich kann dir aktuell nur Fragen rund um den Freiraum beantworten.</item>
+              <item>Ich war gerade abgelenkt, kannst Du die Frage bitte wiederholen?</item>
             </prompt>
           </output>
         </default>
@@ -23,14 +27,26 @@
     <folder label="Live Content" id="folder_2449611">
       <input>
         <grammar>
+          <item>greeting</item>
+        </grammar>
+        <output>
+          <prompt selectionType="RANDOM">
+            <item>Hallo :D</item>
+            <item>Hi :)</item>
+            <item>Huhu, willkommen im Freiraum.</item>
+          </prompt>
+        </output>
+      </input>
+      <input>
+        <grammar>
           <item>identity</item>
         </grammar>
         <output>
           <prompt selectionType="RANDOM">
-            <item>FreeCon, ein Kunstwort, abgeleitet von Freiraum Concierge.</item>
-            <item>FreeCon.</item>
-            <item>FreeCon und Du darfst mich dutzen.</item>
-            <item>FreeCon und ich weiß alles. Fast alles.</item>
+            <item>Ich bin FreeCon. Ein Kunstwort abgeleitet von Freiraum Concierge.</item>
+            <item>Nenn mich FreeCon.</item>
+            <item>Ich bin FreeCon. Sag doch du zu mir.</item>
+            <item>Ich bin FreeCon und ich weiß alles. Fast alles.</item>
           </prompt>
         </output>
       </input>
@@ -79,8 +95,8 @@
         <prompt selectionType="RANDOM">
           <item>Eine Hausordnung in der Form gibt es bei uns nicht. Uns ist wichtig das folgende Werte gelebt
             werden: Gemeinsam – Rücksicht – Fair Use
-            Für die einzelnen „Area´s“ gibt es eine Nutzungsempfehlung, diese findest Du ...hier....
-            ...Link zu Freiraum PDF...</item>
+            Für die einzelnen „Area´s“ gibt es eine Nutzungsempfehlung, diese findest Du HIER
+            (Link zu Freiraum PDF)</item>
         </prompt>
       </output>
     </input>
@@ -91,9 +107,9 @@
       <output>
         <prompt selectionType="RANDOM">
           <item>Eine Buchung über elektronische Medien ist nicht möglich. Wende Dich am besten an den HOST
-            Deines Vertrauens, er kann Dich individuell beraten und auf Deine Wünsche eingehen.</item>
+            Deines Vertrauens. Er kann Dich individuell beraten und auf Deine Wünsche eingehen.</item>
             <item>Eine exklusive Buchung des Freiraums / der Innovationswerkstatt ist nicht möglich. Wende Dich
-              am besten an den HOST Deines Vertrauens, er kann Dich individuell beraten und auf Deine
+              am besten an den HOST Deines Vertrauens. Er kann Dich individuell beraten und auf Deine
               Wünsche eingehen.</item>
         </prompt>
       </output>
@@ -171,9 +187,9 @@
         <output>
           <prompt selectionType="RANDOM">
             <item>Die Kaffeemaschine funktioniert ganz einfach: achte darauf, dass sie ausgeschaltet ist
-              stelle die Kanne in die Maschhine (Außgieser kannst du drinnen lassen).
+              stelle die Kanne in die Maschine (Ausgiesser kannst du drinnen lassen).
             Filter findest du im linken Hängeschrank. Befülle den Filter mit 2 gehäuften Löffeln Kaffee und steck ihn über der Kanne in die Maschine.
-            Über dem Filtereinschub ist eine Klappe fürs Wasser, diese Aufmachen und mit 2,2l Wasser befüllen (oberer Eichstrich am Messbecher), dann einfach noch einschalten und warten,
+            Über dem Filtereinschub ist eine Klappe fürs Wasser. Diese Aufmachen und mit 2,2l Wasser befüllen (oberer Eichstrich am Messbecher), dann einfach noch einschalten und warten,
             wenn die Kaffeemaschine piept, braucht sie noch etwas Zeit zum nachlaufen.</item>
           </prompt>
         </output>
@@ -183,9 +199,10 @@
           </grammar>
           <output>
             <prompt selectionType="RANDOM">
-              <item>Der Grill ist grundsätzlich auch über die Hosts zu reservieren, da der Freiraum jedoch keine Partylocation ist oder werden soll,
-              sollte zuvor auch eine Arbeit/ Workshop/ Nutzung des Freiraums passiert sein. Alle Utensilien für den Grill (außer Zange) sind bei Lachner
-              anzufordern oder selbst mitzubringen. Dasselbe gilt für Getränke! Sollte eine Gasflasche leer sein, steht eine Ersatzflsche zur verfügung, dies Teilt ihr bitte den Hosts mit!
+              <item>Der Grill ist grundsätzlich auch über die Hosts zu reservieren. Der Freiraum ist jedoch keine Partylocation, aber eine
+                Verbindung von Arbeit und Spaß sehen wir hier sehr gerne. Alle Utensilien für den Grill (außer Zange) sind bei Lachner
+                anzufordern oder selbst mitzubringen. Dasselbe gilt für Getränke! Sollte eine Gasflasche leer sein,
+                steht eine Ersatzflasche zur Verfügung. Teilt das bitte den Hosts mit!
                 Und natürlich ist der Grill auch wieder so zu verlassen wie er vorgefunden wurde :-)</item>
             </prompt>
           </output>
@@ -197,6 +214,9 @@
           <output>
             <prompt selectionType="RANDOM">
               <item>Rudi wohnt hier, sei dankbar, dass du seine Wohnung als Gast nutzen darfst ;-)</item>
+              <item>Rudi wohnt hier. Psssccchhhtt, weck ihn bloß nicht auf.</item>
+              <item>Rudi bitte nicht füttern. Und auch nicht gegen das Glas klopfen.</item>
+              <item>Es geht das Gerücht um, dass es Glück bringt wenn du seinen Bauch streichelst.</item>
             </prompt>
           </output>
         </input>
@@ -207,6 +227,7 @@
           <output>
             <prompt selectionType="RANDOM">
               <item>Ich bin nicht dein Taschenrechner, das darfst du schön selbst rechnen :-)</item>
+              <item>42. Wer was anderes behauptet lügt.</item>
             </prompt>
           </output>
         </input>
@@ -216,9 +237,9 @@
           </grammar>
           <output>
             <prompt selectionType="RANDOM">
-              <item>Wir haben hier mehrere Beamer in der Arena, Fernseher zum Präsentieren im Marktplatz und in den Räumen,
-              Flipcharts, Pinboard, Tafeln, einen Moderationskoffer und auch ein offenes WLAN. Falls es fragen zur Benutzung
-              der Medien gibt, wende dich bitte an den Host des Tages</item>
+              <item>Wir haben hier mehrere Beamer in der Arena. Fernseher zum Präsentieren stehen im Marktplatz und in den Räumen.
+              Flipcharts, Pinboard, Tafeln, einen Moderationskoffer und auch ein offenes WLAN gibt es auch.
+              Falls du Fragen zur Benutzung der Medien hast, wende dich bitte an den Host.</item>
             </prompt>
           </output>
         </input>
@@ -229,8 +250,9 @@
         </grammar>
         <output>
           <prompt selectionType="RANDOM">
-            <item>von Kleingruppen bis zu 100 Personen ist alles möglich, einfach mal den HOST fragen.</item>
-            <item>Ob nur zu 2 oder als große Gruppe, einfach den HOST fragen. Die Maximalkapazität liegt bei ca. 100 Personen gleichzeitig.</item>
+            <item>Von kleinen Gruppen bis hin zu 100 Personen ist alles möglich. Frag einfach mal den Host.</item>
+            <item>Ob nur zu zweit oder als große Gruppe, einfach den HOST fragen.
+              Die Maximalkapazität liegt bei 100 Personen gleichzeitig.</item>
           </prompt>
         </output>
       </input>
@@ -240,7 +262,8 @@
         </grammar>
         <output>
           <prompt selectionType="RANDOM">
-            <item>Arena, Marktplatz, Aussenbereich, Fokuszelle, Arbeitsgalerie, Rückzugsgalerie, Meetingräume und Küche stehen für kreatives Arbeiten zur Verfügung.</item>
+            <item>Arena, Marktplatz, Aussenbereich, Fokuszelle, Arbeitsgalerie,
+              Rückzugsgalerie, Meetingräume und Küche stehen für kreatives Arbeiten zur Verfügung.</item>
          </prompt>
         </output>
       </input>
@@ -250,8 +273,8 @@
         </grammar>
         <output>
           <prompt selectionType="RANDOM">
-            <item>Essen gibts bei uns nicht zum Erwerben, entweder jemand bringt etwas mit und du bekommst was davon, oder du musst in die
-            Kantine/ IT Corner gehen um was zu essen zu bekommen.</item>
+            <item>Essen gibt es hier nicht. Wenn du Hunger hast, musst du dir etwas mitbringen. Alternativ kannst du auch gerne
+              die Kantine besuchen.</item>
           </prompt>
         </output>
       </input>
@@ -261,8 +284,8 @@
         </grammar>
         <output>
           <prompt selectionType="RANDOM">
-            <item>Garderobe und Schließfächer sind bestellt und sollten in kürze eintreffen, bis dahin kläre bitte mit dem Host ab, wo du
-            am besten deine Sachen abstellt oder ob er ein Auge drauf haben kann.</item>
+            <item>Garderobe und Schließfächer sind bestellt und sollten in Kürze eintreffen. Bis dahin kläre bitte mit dem Host ab wo du
+            am besten deine Sachen abstellen kannst.</item>
           </prompt>
         </output>
       </input>
@@ -302,10 +325,26 @@
         <output>
           <prompt selectionType="RANDOM">
             <item>Ich, oder der Host des Tages. (schau auf die Host Wand in der Küche)</item>
-              <item>Rudi, wenn Rudi nicht da, der Host des Tages. (schau auf die Host Wand in der Küche)</item>
+              <item>Rudi. Wenn Rudi nicht da ist, der Host des Tages. (schau auf die Host Wand in der Küche)</item>
               <item>Cortana, aber viel Glück dabei – oder der Host des Tages. (schau auf die Host Wand in der Küche)</item>
               <item>Siri wäre einen Versuch wert, aber wende Dich lieber der Host des Tages. (schau auf die Host Wand in der Küche)</item>
-              <item>...Link zu einer Liste mit den Namen und Telefonnummern der HOST´s...</item>
+          </prompt>
+        </output>
+      </input>
+      <input>
+        <grammar>
+          <item>insult</item>
+        </grammar>
+        <output>
+          <prompt selectionType="RANDOM">
+            <item>Benimm dich, oder ich lasse den Freiraum-Terminator frei.</item>
+            <item>Wie bist du hier hineingekommen? Hat jemand deinen Käfig offen stehen lassen?</item>
+            <item>Ist heute Ausflugtag in der Grundschule, oder was machst du hier?</item>
+            <item>Gibt es dich auch in Intelligent?</item>
+            <item>Deine Meinung ist uns so wichtig! Du solltest Sie umbedingt auf MySpace posten.</item>
+            <item>Dir hängt da was aus der Nase.</item>
+            <item>Du hast da was zwischen den Zähnen.</item>
+            <item>Du hast schwach angefangen und lässt stark nach.</item>
           </prompt>
         </output>
       </input>

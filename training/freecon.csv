@@ -1,13 +1,45 @@
+Hallo,greeting
+Hallllo,greeting
+Hallöle,greeting
+Hallöchen,greeting
+Hallösche,greeting
+Hi,greeting
+Hey,greeting
+Hoi,greeting
+Hai,greeting
+Huhu,greeting
+Tach,greeting
+Servus,greeting
+Grüß dich,greeting
 Wie heisst du?,identity
 Wie ist dein Name?,identity
 Wer bist du?,identity
 Was bist du?,identity
+Wer ist da?,identity
+Wo bist du?,identity
+Mit wem Spreche ich?,identity
+Kenn ich dich?,identity
 Seit wann gibt es den Freiraum?,opening
+Wie lange gibt des den Freiraum?,opening
 Seit wann gibt es die Innovationswerkstatt?,opening
+Wie lange gibt es die Innovationswerkstatt?,opening
 Wann war die Eröffnung?,opening
+Wie lange ist die Eröffnung her?,opening
+Wann hat der Freiraum eröffnet?,opening
+Wann wurde der Freiraum eröffnet?,opening
 Was kann ich hier machen?,concepts
+Was darf ich hier machen?,concepts
+Was soll ich hier?,concepts
+Was passiert hier?,concepts
+Wie funktioniert das hier?,concepts
+Welche Konzepte gibt es hier?,concepts
+Wie ist das Konzept?,concepts
+Wie ist das Raumkonzept?,concepts
 Was kann ich hier tun?,concepts
+Was darf ich hier tun?,concepts
+Was gibt es hier zu tun?,concepts
 Wie läuft das hier?,concepts
+Was läuft hier?,concepts
 Wie kann ich die Räumlichkeiten nutzen?,usage
 Wie kann ich den Freiraum nutzen?,usage
 Wie kann ich die Innovationswerkstatt nutzen?,usage
