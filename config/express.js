@@ -31,15 +31,20 @@ module.exports = function (app) {
   // Setup static public directory
   app.use(express.static(__dirname + '/../public'));
 
-  // Add error handling in dev
+  var provided_username = process.env.BASICAUTH_USERNAME,
+      provided_password = process.env.BASICAUTH_PASSWORD;
+
+  // Add error handling and default passwords for local dev
   if (!process.env.VCAP_SERVICES) {
     app.use(errorhandler());
+    provided_username = 'username';
+    provided_password = 'password';
   }
 
   var basicauth = auth.basic({
     realm: 'Freecon Admin'
   },function (username, password, callback) {
-      callback(username === process.env.BASICAUTH_USERNAME && password === process.env.BASICAUTH_PASSWORD);
+      callback(username === provided_username && password === provided_password);
     }
   );
 
