@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "node app.js",
-    "postinstall": "node dialogs/install-dialogs.js"
+    "postinstall": "node dialogs/install-dialogs.js && node dialogs/install-classifier.js"
   },
   "dependencies": {
     "async": "^1.5.1",
