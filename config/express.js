@@ -19,7 +19,8 @@
 // Module dependencies
 var express    = require('express'),
   errorhandler = require('errorhandler'),
-  bodyParser   = require('body-parser');
+  bodyParser   = require('body-parser'),
+  auth         = require('http-auth');
 
 module.exports = function (app) {
 
@@ -35,9 +36,19 @@ module.exports = function (app) {
     app.use(errorhandler());
   }
 
+  var basicauth = auth.basic({
+    realm: 'Freecon Admin'
+  },function (username, password, callback) {
+      callback(username === process.env.BASICAUTH_USERNAME && password === process.env.BASICAUTH_PASSWORD);
+    }
+  );
+
   // When running in Bluemix add rate-limitation
   // and some other features around security
-  if (process.env.VCAP_APPLICATION)
+  if (process.env.VCAP_APPLICATION){
     require('./security')(app);
+  }
+
+  app.use('/admin', auth.connect(basicauth), express.static(__dirname + '/../admin'));
 
 };

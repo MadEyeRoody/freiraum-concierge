@@ -5,6 +5,9 @@ declared-services:
   natural-language-classifier-standard:
     label: natural_language_classifier
     plan: standard
+  cloudant-nosql-db-shared:
+    label: cloudantNoSQLDB
+    plan: Shared
 applications:
 - services:
   - dialog-freecon
