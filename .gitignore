@@ -1,6 +1,5 @@
+.idea
 node_modules
 /dialogs/dialog-id.json
-dialog-cred.json
-nlc-cred.json
-.idea
+/dialogs/classifier-id.json
 VCAP_Services.json

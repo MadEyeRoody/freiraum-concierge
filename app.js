@@ -26,7 +26,7 @@ var express  = require('express'),
   pouchdb    = require('pouchdb');
 
 // Bootstrap application settings
-require('./config/express')(app);
+var settings = require('./config/express')(app);
 
 // if bluemix credentials exists, then override local
 var credentials =  extend({
@@ -48,7 +48,7 @@ var dialog_id_in_json = (function() {
   try {
     var dialogsFile = path.join(path.dirname(__filename), 'dialogs', 'dialog-id.json');
     var obj = JSON.parse(fs.readFileSync(dialogsFile));
-    return obj[Object.keys(obj)[0]].id;
+    return obj[Object.keys(obj)[0]].id; //return id field of first object
   } catch (e) {
   }
 })();
@@ -114,12 +114,13 @@ var classifier_id_in_json = (function() {
   try {
     var classifierFile = path.join(path.dirname(__filename), 'dialogs', 'classifier-id.json');
     var obj = JSON.parse(fs.readFileSync(classifierFile));
-    return obj[Object.keys(obj)[0]].id;
+    //classifiers are ordered by creation date
+    return obj[Object.keys(obj)[0]].id; //return id field of first object
   } catch (e) {
   }
 })();
 
-var classifier-id = process.env.CLASSIFIER_ID || classifier_id_in_json ||'<classifier-id>';
+var classifier_id = process.env.CLASSIFIER_ID || classifier_id_in_json ||'<classifier-id>';
 
 // Call the pre-trained classifier with body.text
 // Responses are json
@@ -127,7 +128,7 @@ app.post('/api/classify', function(req, res, next) {
   console.log('request accepted. text to classify is: ', req.body.text);
 
   var nlcparams = {
-    classifier: classifier-id, // pre-trained classifier
+    classifier: classifier_id, // pre-trained classifier
     text: req.body.text
   };
 
@@ -144,7 +145,6 @@ app.post('/api/classify', function(req, res, next) {
 
     }
   });
-  // res.json({'top_class' : 'rudi'});
 });
 
 app.post('/api/save', function(req, res, next){

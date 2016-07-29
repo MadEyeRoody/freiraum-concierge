@@ -38,12 +38,13 @@ var nlcService = {
                 var jsonBody = JSON.parse(body);
                 if(jsonBody.classifiers){
                     jsonBody.classifiers.forEach(function (element) {
-                        classifiers[element.created] = element.classifier_id;
+                        classifiers[element.created] = { id: element.classifier_id};
                     });
                 }
                 console.log('all received classifiers: ', JSON.stringify(classifiers));
                 console.log(body);
                 // TODO write classifiers to json file
+                fs.writeFileSync('dialogs/classifier-id.json', JSON.stringify(classifiers, null, 4))
             }
         });
     }
