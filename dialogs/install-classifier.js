@@ -17,17 +17,24 @@ var async = require('async'),
     fs = require('fs'),
     path = require('path'),
     request = require('request'),  // https://github.com/request/request
-    extend     = require('util')._extend;
+    extend     = require('util')._extend,
+    certfile = path.resolve('ssl/FIDUCIA_ROOT.pem');
 
 var nlcService = {
     getClassifiers: function(credentials) {
 
-        request({
+        request.get({
             url: credentials.url + '/v1/classifiers',
             auth: {
                 user: credentials.username,
                 pass: credentials.password
+            },
+            strictSSL: false
+            /*
+            agentOptions: {
+                ca: fs.readFileSync(certfile)
             }
+            */
         },
 
         function(error, response, body) {

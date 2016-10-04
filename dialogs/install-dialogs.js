@@ -26,7 +26,8 @@ var dialogService = {
             auth: {
                 user: credentials.username,
                 pass: credentials.password
-            }
+            },
+            strictSSL: false
         },
         function(error, response, body) {
             if (error) {
@@ -70,7 +71,8 @@ var dialogService = {
                     user: credentials.username,
                     pass:credentials.password
                 },
-                formData: formData
+                formData: formData,
+                strictSSL: false
             },
             function(error, response, body) {
 
@@ -159,8 +161,8 @@ function updateDialogFiles(credentials) {
                         cb();
                     }
                 };
-                dialogService.setDialog(credentials, name, value.id, value.fullPath,
-                                        dialogProcessedCb);
+                // dialogService.setDialog(credentials, name, value.id, value.fullPath,
+                //                    dialogProcessedCb);
             };
             async.forEachOf(dialogFiles.get(),
                             processDialog,
